@@ -40,4 +40,15 @@ public class Laser : MonoBehaviour
         //Destroy laser
         Destroy(gameObject);
     }
+
+    //get rid of later, this goes to the bullet script
+    private void OnTriggerEnter(Collider other)
+    {
+        //Placeholder code that destroys any enemy the bullets collides with.
+        if (other.gameObject.GetComponent<EnemyMovement>())
+        {
+            Destroy(other.gameObject);
+        }
+
+    }
 }
