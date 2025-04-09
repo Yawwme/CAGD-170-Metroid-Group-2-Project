@@ -34,4 +34,15 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
 
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        //Placeholder code that destroys any enemy the bullets collides with.
+        if (other.gameObject.GetComponent<EnemyMovement>())
+        {
+            Destroy(other.gameObject);
+        }
+        
+    }
+
 }
