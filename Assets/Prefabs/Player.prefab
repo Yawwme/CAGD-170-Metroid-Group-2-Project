@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: 1922884510049127319}
   - component: {fileID: 4652485348440182413}
   - component: {fileID: 8096277258422052040}
+  - component: {fileID: 4652856088465482560}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -684,7 +685,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016620863050867016}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25b397b9c0f3d4444b2bbef4790125a1, type: 3}
   m_Name: 
@@ -695,6 +696,28 @@ MonoBehaviour:
   lives: 3
   maxFallDistance: -5
   stunTimer: 2
+--- !u!114 &4652856088465482560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016620863050867016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb8c486f3a4cd9641bfe5925ba0fbe43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goingLeft: 0
+  speed: 10
+  jumpForce: 10
+  maxFallDistance: -5
+  stunTimer: 0
+  timeBetweenShots: 1
+  startDelay: 1
+  coin: 0
+  health: 99
+  projectilePrefab: {fileID: 6516073590571661147, guid: 74f46504bc5d07349b20142aa64f6780, type: 3}
 --- !u!1 &2218143083485895212
 GameObject:
   m_ObjectHideFlags: 0
