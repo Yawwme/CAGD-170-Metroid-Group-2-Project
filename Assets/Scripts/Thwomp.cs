@@ -47,7 +47,7 @@ public class Thwomp : MonoBehaviour
         //Casts a raycast down from the leftEdge of the thwomp to check for player
         if (Physics.Raycast(leftEdge, Vector3.down, out hit, Mathf.Infinity) && !isMovingDown && !isMovingUp) //Draws an infinte distance
         {
-            if (hit.transform.GetComponent<PlayerController>()) //Raycast hit player
+            if (hit.transform.GetComponent<SamusController>()) //Raycast hit player
             {
                 print("Left raycast hit player youch");
                 isMovingDown = true;
@@ -58,7 +58,7 @@ public class Thwomp : MonoBehaviour
         //Casts a raycast down from the rightEdge of the thwomp to check for player
         if (Physics.Raycast(rightEdge, Vector3.down, out hit, Mathf.Infinity) && !isMovingDown && !isMovingUp) //Draws an infinte distance
         {
-            if (hit.transform.GetComponent<PlayerController>()) //Raycast hit player
+            if (hit.transform.GetComponent<SamusController>()) //Raycast hit player
             {
                 print("Right raycast hit player youch");
                 isMovingDown = true;

@@ -17,9 +17,9 @@ public class Hazard : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         //Checks if the player collided with a hazard
-        if (collision.gameObject.GetComponent<PlayerController>())
+        if (collision.gameObject.GetComponent<SamusController>())
         {
-            collision.gameObject.GetComponent<PlayerController>().LoseLife();
+            collision.gameObject.GetComponent<SamusController>().LoseHealth();
             print("you lost a life haha");
         }
         
@@ -28,9 +28,9 @@ public class Hazard : MonoBehaviour
     //Checks for overlaps with the player
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<PlayerController>())
+        if (other.gameObject.GetComponent<SamusController>())
         {
-            other.gameObject.GetComponent<PlayerController>().LoseLife();
+            other.gameObject.GetComponent<SamusController>().LoseHealth();
             print("you lost a life again jaja");
         }
     }

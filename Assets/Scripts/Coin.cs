@@ -28,10 +28,10 @@ public class Coin : MonoBehaviour
     {
         //Check if the touched object has the PlayerController script
         //This is the player
-        if (other.GetComponent<PlayerController>())
+        if (other.GetComponent<SamusController>())
         {
             //Add coin to the player
-            other.GetComponent<PlayerController>().coin++; //or += 1
+            other.GetComponent<SamusController>().coin++; //or += 1
 
             //Remove the collected coin
             gameObject.SetActive(false); //or Destroy(gameObject);
