@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && OnGround())
+        if (Input.GetKeyDown(KeyCode.W) && OnGround())
         {
             rigidbody.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
         }
@@ -115,11 +115,33 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void HardLoseHealth() //lose health from regular enemy
+    {
+        if (!isInvincible) // Only lose HP if not invincible
+        {
+            health -= 35; // Deduct 15 HP
+            UpdateLivesUI();
+
+            if (health > 0)
+            {
+                StartCoroutine(InvincibilityCoroutine()); // Start blinking and invincibility
+            }
+            else
+            {
+                SceneManager.LoadScene("Game Over");
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Hazard"))
         {
             LoseHealth();
+        }
+        if (other.CompareTag("HeavyHazard"))
+        {
+            HardLoseHealth();
         }
         if (other.tag == "Laser")
         {
