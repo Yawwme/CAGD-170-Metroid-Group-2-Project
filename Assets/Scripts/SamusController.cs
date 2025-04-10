@@ -93,12 +93,14 @@ public class SamusController : MonoBehaviour
     private void Shoot()
     {
         //Work on how many bullets you can fire and holding the fire button
-        if (Input.GetKeyUp(KeyCode.Space)) 
+        if (Input.GetKey(KeyCode.Space)) 
         {
-            InvokeRepeating("SpawnProjectile", startDelay, timeBetweenShots);
-
+            InvokeRepeating("SpawnProjectile", 1, 0);
+            
             
         }
+
+       
 
         //If the bullets collide with anything then it gets destroyed
 
@@ -150,12 +152,11 @@ public class SamusController : MonoBehaviour
         //Check if health > 0
         if (health > 0)
         {
-            //Respawns the player by setting their current position to the position of the respawn point
-            transform.position = respawnPoint;
+            
         }
         else //Else game over D:
         {
-            //Change scene into game over, you lazy bum!
+            //Change scene into game over or wherever the scene is
             SceneManager.LoadScene(2);
             print("wah you're dead");
         }
@@ -186,4 +187,6 @@ public class SamusController : MonoBehaviour
         speed = currentPlayerSpeed;
 
     }
+
+    
 }

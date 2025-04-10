@@ -45,7 +45,7 @@ public class Laser : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Placeholder code that destroys any enemy the bullets collides with.
-        if (other.gameObject.GetComponent<EnemyMovement>())
+        if (other.gameObject.GetComponent<Alien>())
         {
             Destroy(other.gameObject);
         }
