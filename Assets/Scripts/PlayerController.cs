@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 respawnPoint;
     private Rigidbody rigidbody;
 
+    public bool goingLeft = false;
     public TMP_Text livesText;
     public TMP_Text coinText;
 
@@ -47,14 +48,25 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
+            //Moves the player to the right
+            //transform.position += Vector3.right * speed * Time.deltaTime; 
             rigidbody.MovePosition(transform.position + (Vector3.right * speed * Time.deltaTime));
+            transform.rotation = Quaternion.Euler(0, 360, 0);
+            goingLeft = false;
         }
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+
+        //Checks for the left input (A/LeftArrow)
+        if (Input.GetKey(KeyCode.A))
         {
+            //Moves the player to the left
+            //transform.position += Vector3.left * speed * Time.deltaTime;
             rigidbody.MovePosition(transform.position + (Vector3.left * speed * Time.deltaTime));
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            goingLeft = true;
         }
+
     }
 
     private void Jump()
