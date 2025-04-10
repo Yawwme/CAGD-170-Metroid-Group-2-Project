@@ -18,9 +18,12 @@ public class SamusController : MonoBehaviour
     public int health = 99;
     
     public GameObject projectilePrefab;
-   
 
-    
+    private bool isInvincible = false; // Tracks invincibility state
+
+    private Renderer playerRenderer; // Player renderer for blinking effect
+
+
     private Vector3 respawnPoint;
     private Rigidbody rb;
 
@@ -31,6 +34,8 @@ public class SamusController : MonoBehaviour
 
         //Set the respawnPoint variable = to the player's starting position
         respawnPoint = transform.position;
+        playerRenderer = GetComponent<Renderer>(); // Get the renderer for the blinking effect
+
     }
 
     private void Update()
@@ -144,21 +149,23 @@ public class SamusController : MonoBehaviour
     /// </summary>
     public void LoseHealth()
     {
-        //Reduces the player's lives (by one)
-        health--;
+        if (!isInvincible) // Only lose HP if not invincible
+        {
+            health -= 15; // Deduct 15 HP
 
-        //Check if health > 0
-        if (health > 0)
-        {
-            //Respawns the player by setting their current position to the position of the respawn point
-            transform.position = respawnPoint;
+            switch (health)
+            {
+                case > 0:
+                    StartCoroutine(InvincibilityCoroutine()); // Start blinking and invincibility
+                    break;
+                default:
+                    //Change scene into game over, you lazy bum!
+                    SceneManager.LoadScene(2);
+                    print("wah you're dead");
+                    break;
+            }
         }
-        else //Else game over D:
-        {
-            //Change scene into game over, you lazy bum!
-            SceneManager.LoadScene(2);
-            print("wah you're dead");
-        }
+        
 
     }
 
@@ -185,5 +192,19 @@ public class SamusController : MonoBehaviour
         yield return new WaitForSeconds(stunTimer);
         speed = currentPlayerSpeed;
 
+    }
+    private IEnumerator InvincibilityCoroutine()
+    {
+        isInvincible = true;
+
+        //Blinking effect for 5 seconds
+        for (float i = 0; i < 5; i += 0.2f)
+            {
+                playerRenderer.enabled = !playerRenderer.enabled; // Toggle visibility
+                yield return new WaitForSeconds(0.2f);
+            }
+
+        playerRenderer.enabled = true; // Ensure player is visible after blinking
+        isInvincible = false;
     }
 }
