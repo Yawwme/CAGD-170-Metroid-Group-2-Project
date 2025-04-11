@@ -3232,6 +3232,14 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 73d587a529c1f5442be30b60483048bf, type: 2}
+    - target: {fileID: 6766014956700542947, guid: a581b5cf968aebd4aaa770383ecf8c71, type: 3}
+      propertyPath: coinText
+      value: 
+      objectReference: {fileID: 365056742}
+    - target: {fileID: 6766014956700542947, guid: a581b5cf968aebd4aaa770383ecf8c71, type: 3}
+      propertyPath: livesText
+      value: 
+      objectReference: {fileID: 938253666}
     - target: {fileID: 7660308530850400125, guid: a581b5cf968aebd4aaa770383ecf8c71, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.5
