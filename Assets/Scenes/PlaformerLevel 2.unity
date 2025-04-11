@@ -171,42 +171,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1122965187974158226, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: teleportPoint
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 7885048329111496828, guid: fc815bedc51e55c47883787207f9491f, type: 3}
       propertyPath: m_Name
       value: Level Portal
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1122965187974158226, guid: fc815bedc51e55c47883787207f9491f, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1287159651186412139, guid: fc815bedc51e55c47883787207f9491f, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7885048329111496828, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 604988370}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc815bedc51e55c47883787207f9491f, type: 3}
---- !u!1 &604988369 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7885048329111496828, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-  m_PrefabInstance: {fileID: 40747635}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &604988370
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 604988369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6e8b40e3cfe4714ab169b6fdb56e69b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buildIndex: 2
 --- !u!1 &701564008
 GameObject:
   m_ObjectHideFlags: 0
