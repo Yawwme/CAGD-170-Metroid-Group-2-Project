@@ -20,6 +20,7 @@ public class HealthPack : MonoBehaviour
         {    
             player.health +=  healthRestore; //might be wrong idk!!!!
             print(player.health);
+            player.UpdateLivesUI();
             Destroy(gameObject);
         }
     }
