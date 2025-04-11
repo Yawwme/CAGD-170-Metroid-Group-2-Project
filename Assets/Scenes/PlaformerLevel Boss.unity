@@ -123,68 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &40747635
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.79949
-      objectReference: {fileID: 0}
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 2.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.19569302
-      objectReference: {fileID: 0}
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 222901862234338506, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3934845170816045848, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: buildIndex
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7885048329111496828, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-      propertyPath: m_Name
-      value: Level Portal
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1287159651186412139, guid: fc815bedc51e55c47883787207f9491f, type: 3}
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fc815bedc51e55c47883787207f9491f, type: 3}
 --- !u!4 &600099083 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 610376008432785177, guid: a581b5cf968aebd4aaa770383ecf8c71, type: 3}
@@ -368,6 +306,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 610376008432785177, guid: a581b5cf968aebd4aaa770383ecf8c71, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1070264874704157621, guid: a581b5cf968aebd4aaa770383ecf8c71, type: 3}
       propertyPath: m_Name
       value: player
@@ -753,7 +695,7 @@ Transform:
   m_GameObject: {fileID: 1563078593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 1.71, z: -10}
+  m_LocalPosition: {x: -7.2, y: 1.71, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1005,7 +947,7 @@ PrefabInstance:
       objectReference: {fileID: 600099083}
     - target: {fileID: 8942394513507142917, guid: f3308ef5399c46442b73b49a86935b96, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.5
+      value: -7.2
       objectReference: {fileID: 0}
     - target: {fileID: 8942394513507142917, guid: f3308ef5399c46442b73b49a86935b96, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1230,6 +1172,5 @@ SceneRoots:
   - {fileID: 1193978909}
   - {fileID: 1208898785}
   - {fileID: 1391314585}
-  - {fileID: 40747635}
   - {fileID: 1563078597}
   - {fileID: 1803095561}

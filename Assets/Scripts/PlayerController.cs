@@ -164,11 +164,21 @@ public class PlayerController : MonoBehaviour
         // Blinking effect for 5 seconds
         for (float i = 0; i < 5; i += 0.2f)
         {
-            playerRenderer.enabled = !playerRenderer.enabled; // Toggle visibility
+            ToggleVisibility(playerRenderer.gameObject, !playerRenderer.enabled); // Toggle visibility of player and children
             yield return new WaitForSeconds(0.2f);
         }
 
-        playerRenderer.enabled = true; // Ensure player is visible after blinking
+        ToggleVisibility(playerRenderer.gameObject, true); // Ensure player and children are visible after blinking
         isInvincible = false;
+    }
+
+    // Function to toggle visibility of a GameObject and all its children
+    private void ToggleVisibility(GameObject obj, bool visibility)
+    {
+        Renderer[] renderers = obj.GetComponentsInChildren<Renderer>();
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = visibility;
+        }
     }
 }

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/PlaformerLevel 2.unity
     guid: 5f5674ecd84b9574a8604997ff739fe7
   - enabled: 1
+    path: Assets/Scenes/PlaformerLevel Boss.unity
+    guid: d54a996352c06f3448d2489a04edba02
+  - enabled: 1
     path: Assets/Scenes/Game Over.unity
     guid: 8ad47e926ca5c7949975d458d9427458
   - enabled: 1
