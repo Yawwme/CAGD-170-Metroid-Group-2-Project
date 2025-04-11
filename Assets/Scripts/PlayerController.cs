@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float stunTimer = 5;
 
     private Vector3 respawnPoint;
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
 
     public bool goingLeft = false;
     public TMP_Text livesText;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         respawnPoint = transform.position;
         playerRenderer = GetComponent<Renderer>(); // Get the renderer for the blinking effect
 
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             //Moves the player to the right
             //transform.position += Vector3.right * speed * Time.deltaTime; 
-            rigidbody.MovePosition(transform.position + (Vector3.right * speed * Time.deltaTime));
+            rb.MovePosition(transform.position + (Vector3.right * speed * Time.deltaTime));
             transform.rotation = Quaternion.Euler(0, 360, 0);
             goingLeft = false;
         }
@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
         {
             //Moves the player to the left
             //transform.position += Vector3.left * speed * Time.deltaTime;
-            rigidbody.MovePosition(transform.position + (Vector3.left * speed * Time.deltaTime));
+            rb.MovePosition(transform.position + (Vector3.left * speed * Time.deltaTime));
             transform.rotation = Quaternion.Euler(0, 180, 0);
             goingLeft = true;
         }
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.W) && OnGround())
         {
-            rigidbody.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
+            rb.AddForce(Vector3.up * jumpforce, ForceMode.Impulse);
         }
     }
 
