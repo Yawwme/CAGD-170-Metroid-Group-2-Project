@@ -3263,6 +3263,10 @@ PrefabInstance:
       propertyPath: livesText
       value: 
       objectReference: {fileID: 1409739885}
+    - target: {fileID: 6766014956700542947, guid: a581b5cf968aebd4aaa770383ecf8c71, type: 3}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 7316265483226273635, guid: 842b5705787add84fb67c3f615a465ff, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
