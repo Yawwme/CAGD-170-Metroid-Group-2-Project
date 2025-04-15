@@ -1,24 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
+
+/*
+ *Ricky Pardo
+ * 4 / 15 / 2025
+ * script that kills the player when colliding with a harder hazard or kills the harder hazard when colliding with the player lazar enough type
+ * 
+ */
 public class HardHazard : MonoBehaviour
 {
+    public int health = 10; // Set initial health
+
     private void OnCollisionEnter(Collision collision)
     {
-        //check if the player collided with this hazard
+        // Check if the player collided with this hazard
         if (collision.gameObject.GetComponent<PlayerController>())
         {
             collision.gameObject.GetComponent<PlayerController>().HardLoseHealth();
         }
     }
 
-    //checks for overlaps with the player
+    // Checks for overlaps with the player
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.GetComponent<PlayerController>())
         {
             other.gameObject.GetComponent<PlayerController>().HardLoseHealth();
+        }
+        else if (other.gameObject.CompareTag("Laser"))
+        {
+                Debug.Log("Laser hit the hazard!"); // Debugging
+            TakeDamage(1);
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            Destroy(gameObject); // Destroy hazard when health reaches zero
         }
     }
 }
