@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     public int coins = 0;
     public int health = 99; // Starting HP
+    public int maxHealth = 99; // Max HP
     
     
     private Vector3 respawnPoint;

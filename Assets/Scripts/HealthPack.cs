@@ -15,11 +15,19 @@ public class HealthPack : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         PlayerController player = other.GetComponent<PlayerController>();
+    
 
-        if (other.GetComponent<PlayerController>())
+        if (other.GetComponent<PlayerController>() && player.maxHealth <= 99)
         {    
             player.health +=  healthRestore; //might be wrong idk!!!!
             print(player.health);
+            player.UpdateLivesUI();
+            Destroy(gameObject);
+        }
+        else if (other.GetComponent<PlayerController>() && player.maxHealth >= 99)
+        {
+            player.health += 0;
+            print("haha no heal");
             player.UpdateLivesUI();
             Destroy(gameObject);
         }
