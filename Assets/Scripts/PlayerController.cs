@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// jaja
+    /// used to be SpawnProjectile
     /// </summary>
     public void SpawnProjectile()
     {
@@ -128,6 +128,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SpawnHeavy()
+    {
+        GameObject heavyBullet = Instantiate(heavyBulletPrefab, transform.position, heavyBulletPrefab.transform.rotation);
+        if (heavyBullet.GetComponent<HeavyBullet>())
+        {
+            heavyBullet.GetComponent<HeavyBullet>().goingLeft = goingLeft;
+        }
+    }
 
     private bool OnGround()
     {
@@ -216,10 +224,16 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator BulletDelay()
     {
-        if (isShooting == true || isNormalBullet == true)
+        if (isShooting == true && isNormalBullet == true)
         {
             yield return new WaitForSeconds(0.5f);
             InvokeRepeating("SpawnProjectile", startDelay, timeBetweenShots); //this somehow keeps it from breaking
+            yield return new WaitForSeconds(0.5f);
+        }
+        else if (isShooting == true && isHeavyBullet == true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            InvokeRepeating("SpawnHeavy", startDelay, timeBetweenShots); //this somehow keeps it from breaking
             yield return new WaitForSeconds(0.5f);
         }
     }
