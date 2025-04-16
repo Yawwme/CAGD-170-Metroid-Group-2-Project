@@ -36,6 +36,12 @@ public class HardHazard : MonoBehaviour
             TakeDamage(1);
             Destroy(other.gameObject);
         }
+        else if (other.gameObject.CompareTag("Heavy"))
+        {
+            Debug.Log("HEAVY hit the hazard!"); // Debugging
+            TakeDamage(3);
+            Destroy(other.gameObject);
+        }
     }
 
     private void TakeDamage(int amount)
