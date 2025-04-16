@@ -4,13 +4,19 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+/*
+ * Author:
+ * 
+ * 
+ */
+
 public class PlayerController : MonoBehaviour
 {
     public float speed = 10;
     public float jumpforce = 10;
     public float killHeight = -5;
     public float stunTimer = 0;
-    public GameObject projectilePrefab;
+    
     public float timeBetweenShots;
     public float startDelay;
 
@@ -26,8 +32,14 @@ public class PlayerController : MonoBehaviour
     public TMP_Text coinText;
 
     private bool isInvincible = false; // Tracks invincibility state
+    private bool isShooting = false;
 
     private Renderer playerRenderer; // Player renderer for blinking effect
+    
+    public GameObject projectilePrefab; //normal
+    public GameObject heavyBulletPrefab; //heavy
+    public bool isNormalBullet = true;
+    public bool isHeavyBullet = false;
 
     void Start()
     {
@@ -89,11 +101,14 @@ public class PlayerController : MonoBehaviour
     private void Shoot()
     {
         //Work on how many bullets you can fire and holding the fire button
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            InvokeRepeating("SpawnProjectile", startDelay, timeBetweenShots);
-
-
+            isShooting = true;
+            StartCoroutine(BulletDelay());  
+        }
+        else
+        {
+            isShooting = false;
         }
 
         //If the bullets collide with anything then it gets destroyed
@@ -201,7 +216,12 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator BulletDelay()
     {
-
+        if (isShooting == true || isNormalBullet == true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            InvokeRepeating("SpawnProjectile", startDelay, timeBetweenShots); //this somehow keeps it from breaking
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     // Function to toggle visibility of a GameObject and all its children
