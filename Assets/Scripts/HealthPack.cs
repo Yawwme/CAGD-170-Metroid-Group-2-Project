@@ -17,17 +17,10 @@ public class HealthPack : MonoBehaviour
         PlayerController player = other.GetComponent<PlayerController>();
     
 
-        if (other.GetComponent<PlayerController>() && player.maxHealth <= 99)
-        {    
-            player.health +=  healthRestore; //might be wrong idk!!!!
-            print(player.health);
-            player.UpdateLivesUI();
-            Destroy(gameObject);
-        }
-        else if (other.GetComponent<PlayerController>() && player.maxHealth >= 99)
+        if (other.GetComponent<PlayerController>() && player.maxHealth == 99)
         {
-            player.health += 0;
-            print("haha no heal");
+            player.health = Mathf.Min(player.health + healthRestore, player.maxHealth); //Returns the minimum of the healthRestore in case the player's current HP is close to the max.
+                                                                                        //That way you don't just overheal or don't heal. I love Unity Documentation
             player.UpdateLivesUI();
             Destroy(gameObject);
         }

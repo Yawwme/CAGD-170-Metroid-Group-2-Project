@@ -19,7 +19,8 @@ public class PlayerController : MonoBehaviour
     
     public float timeBetweenShots;
     public float startDelay;
-
+    public float bulletDelay;
+    
     public int coins = 0;
     public int health = 99; // Starting HP
     public int maxHealth = 99; // Max HP
@@ -102,15 +103,21 @@ public class PlayerController : MonoBehaviour
     private void Shoot()
     {
         //Work on how many bullets you can fire and holding the fire button
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && Time.time >= bulletDelay)
         {
-            isShooting = true;
-            StartCoroutine(BulletDelay());  
+            bulletDelay = Time.time + 0.5f;
+
+            if (isNormalBullet == true)
+            {
+                SpawnProjectile();
+            }
+
+            else if (isHeavyBullet == true)
+            {
+                SpawnHeavy();
+            }
         }
-        else
-        {
-            isShooting = false;
-        }
+            
 
         //If the bullets collide with anything then it gets destroyed
 

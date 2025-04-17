@@ -18,10 +18,13 @@ public class ExtraHealthPickUp : MonoBehaviour
 
         if (other.GetComponent<PlayerController>())
         {
-            player.maxHealth = 199;
-            player.health = 199; //should restore to max
-            print(player.health);
-            player.UpdateLivesUI();
+            if (player.maxHealth == 99)
+            {
+                player.maxHealth = 199;
+                player.health = 199;
+                player.UpdateLivesUI();
+            }
+
             Destroy(gameObject);
         }
     }
