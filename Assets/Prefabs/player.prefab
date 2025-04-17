@@ -348,14 +348,15 @@ MonoBehaviour:
   stunTimer: 5
   timeBetweenShots: 0
   startDelay: 0
+  bulletDelay: 0
   coins: 0
   health: 99
   maxHealth: 99
   goingLeft: 0
   livesText: {fileID: 0}
   coinText: {fileID: 0}
-  projectilePrefab: {fileID: 0}
-  heavyBulletPrefab: {fileID: 0}
+  projectilePrefab: {fileID: 7316265483226273635, guid: 842b5705787add84fb67c3f615a465ff, type: 3}
+  heavyBulletPrefab: {fileID: 1797204942325810405, guid: 1be4228e065eae54fb602bc9002593d8, type: 3}
   isNormalBullet: 1
   isHeavyBullet: 0
 --- !u!54 &1194287979044682032
