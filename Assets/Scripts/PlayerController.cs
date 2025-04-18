@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour
     public float bulletDelay;
     
     public int coins = 0;
-    public int health = 99; // Starting HP
+    public int currentHealth; //the current health of the character
+    public int health; // Starting HP
     public int maxHealth = 99; // Max HP
-    
     
     private Vector3 respawnPoint;
     private Rigidbody rb;
@@ -48,6 +48,10 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         respawnPoint = transform.position;
         playerRenderer = GetComponent<Renderer>(); // Get the renderer for the blinking effect
+
+       
+        print(currentHealth);
+        health = currentHealth; //techincally should set health to the currentHealth
 
         UpdateCoinUI();
         UpdateLivesUI();

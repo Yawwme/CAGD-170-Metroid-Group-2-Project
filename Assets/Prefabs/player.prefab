@@ -352,6 +352,7 @@ MonoBehaviour:
   coins: 0
   health: 99
   maxHealth: 99
+  currentHealth: 99
   goingLeft: 0
   livesText: {fileID: 0}
   coinText: {fileID: 0}

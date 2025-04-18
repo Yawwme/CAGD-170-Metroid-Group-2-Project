@@ -9,12 +9,22 @@ using UnityEngine.SceneManagement;
  * Portal that sends you a different level
  * 
  */
+
 public class LevelPortal : MonoBehaviour
 {
     public int buildIndex;
 
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(buildIndex);
+        PlayerController player = other.GetComponent<PlayerController>();
+
+        if (other.GetComponent<PlayerController>())
+        {
+            print(player.health + "a");
+            player.currentHealth = player.health;
+            print(player.health);
+            player.UpdateLivesUI(); 
+        }
+            SceneManager.LoadScene(buildIndex);
     }
 }
