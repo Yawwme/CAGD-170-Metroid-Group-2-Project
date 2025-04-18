@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateLivesUI()
     {
-        livesText.text = "health: " + health;
+        livesText.text = "Health: " + health;
     }
 
     public void LoseHealth() //lose health from regular enemy
