@@ -1,6 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
+/*
+ * Author(s): Jann Morales
+ * Date Created: 4 / 10 / 2025
+ * Description: This is for the HealthPack pick up. Restores Health up to the maxHealth
+ */
+
 
 public class HealthPack : MonoBehaviour
 {
@@ -24,5 +32,12 @@ public class HealthPack : MonoBehaviour
             player.UpdateLivesUI();
             Destroy(gameObject);
         }
+        else if (other.GetComponent<PlayerController>() && player.maxHealth == 199)
+        {
+            player.health = Mathf.Min(player.health + healthRestore, player.maxHealth); 
+            player.UpdateLivesUI();
+            Destroy(gameObject);
+        }
+
     }
 }

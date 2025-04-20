@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /*
- *Ricky Pardo
- * 4 / 1 / 2025
- * projectile based laser
- * 
+ * Author(s): Ricky Pardo
+ * Date Created: 4 / 1 / 2025
+ * Description: Projectile based laser. Yes, the laser got reused for the project. 
  */
+ 
 public class Laser : MonoBehaviour
 {
     public float speed;

@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+*Author(s): Jann Morales
+ * Date Created: 4 / 10 / 2025
+ * Description: This is for the HeavyBullet powerup. Once collected, allows the player to only fire heavy bullets. Replaces normal bullets (which are just lasers).
+ */
+
 public class HeavyBulletPickUp : MonoBehaviour
 {
     public float rotSpeed = 1;

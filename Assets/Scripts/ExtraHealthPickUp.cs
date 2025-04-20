@@ -1,6 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
+/*
+ * Author(s): Jann Morales
+ * Date Created: 4 / 15 / 25
+ * Description: This is for the Extra Health Pickup power up. Increases the player's maxHealth by 100 and fully heals them
+ */
+
 
 public class ExtraHealthPickUp : MonoBehaviour
 {

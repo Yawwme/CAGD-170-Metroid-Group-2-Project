@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * Author(s): Jann Morales
+ * Date Created: 4 / 10 / 2025
+ * Description: This is for the JumpPack power up. Makes the player jump higher.
+ */
+
 public class JumpPack : MonoBehaviour
 {
     public float rotSpeed = 1;
@@ -18,7 +24,7 @@ public class JumpPack : MonoBehaviour
 
         if (other.GetComponent<PlayerController>())
         {
-            player.jumpforce += jumpPower; //might be wrong idk!!!!
+            player.jumpforce += jumpPower;
             print(player.jumpforce);
             Destroy(gameObject);
         }

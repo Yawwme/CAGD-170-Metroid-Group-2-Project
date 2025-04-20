@@ -5,9 +5,10 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 /*
- * Author:
- * 
- * 
+ * Author: Jann Morales and Ricky Pardo
+ * Date Created: 4/10/25 
+ * Description: Handles nearly everything player related. From movement to shooting to iframes. 
+ * There used to be the SamusController, that didn't work well. It failed, horribly.
  */
 
 public class PlayerController : MonoBehaviour
@@ -34,14 +35,13 @@ public class PlayerController : MonoBehaviour
     public TMP_Text coinText;
 
     private bool isInvincible = false; // Tracks invincibility state
-    private bool isShooting = false;
-
+   
     private Renderer playerRenderer; // Player renderer for blinking effect
     
-    public GameObject projectilePrefab; //normal
-    public GameObject heavyBulletPrefab; //heavy
-    public bool isNormalBullet = true;
-    public bool isHeavyBullet = false;
+    public GameObject projectilePrefab; //Normal bullets
+    public GameObject heavyBulletPrefab; //Heavy bullet
+    public bool isNormalBullet = true; //Do not change this to false
+    public bool isHeavyBullet = false; //Unless you want the player to start with heavy bullets (don't), don't change the value.
 
     void Start()
     {
@@ -51,9 +51,9 @@ public class PlayerController : MonoBehaviour
 
        
         print(currentHealth);
-        health = currentHealth; //techincally should set health to the currentHealth
+        health = currentHealth; //We wanted to figure out if there was a way to store health values between scenes. That got scrapped.
 
-        UpdateCoinUI();
+        UpdateCoinUI(); //Leftovers from the other project. You won't find the UI within the game.
         UpdateLivesUI();
     }
 
@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
             goingLeft = false;
         }
 
-        //Checks for the left input (A/LeftArrow)
+        //Checks for the left input 
         if (Input.GetKey(KeyCode.A))
         {
             //Moves the player to the left
@@ -121,18 +121,13 @@ public class PlayerController : MonoBehaviour
                 SpawnHeavy();
             }
         }
-            
-
-        //If the bullets collide with anything then it gets destroyed
+           
 
     }
 
-    /// <summary>
-    /// used to be SpawnProjectile
-    /// </summary>
     public void SpawnProjectile()
     {
-        //Remember to change the GetComponent into the bullet script (once bullets get added)
+        
         GameObject projectile = Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
         if (projectile.GetComponent<Laser>())
         {
@@ -159,6 +154,9 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
+    /// <summary>
+    /// You will never see the coin UI in-game
+    /// </summary>
     public void UpdateCoinUI()
     {
         coinText.text = "Coins: " + coins;
@@ -187,11 +185,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void HardLoseHealth() //lose health from regular enemy
+    public void HardLoseHealth() //lose health from hard enemy
     {
         if (!isInvincible) // Only lose HP if not invincible
         {
-            health -= 35; // Deduct 15 HP
+            health -= 35; // Deduct 35 HP
             UpdateLivesUI();
 
             if (health > 0)
@@ -218,7 +216,7 @@ public class PlayerController : MonoBehaviour
     }
    
 
- 
+
     private IEnumerator InvincibilityCoroutine()
     {
         isInvincible = true;
@@ -234,21 +232,6 @@ public class PlayerController : MonoBehaviour
         isInvincible = false;
     }
 
-    private IEnumerator BulletDelay()
-    {
-        if (isShooting == true && isNormalBullet == true)
-        {
-            yield return new WaitForSeconds(0.5f);
-            InvokeRepeating("SpawnProjectile", startDelay, timeBetweenShots); //this somehow keeps it from breaking
-            yield return new WaitForSeconds(0.5f);
-        }
-        else if (isShooting == true && isHeavyBullet == true)
-        {
-            yield return new WaitForSeconds(0.5f);
-            InvokeRepeating("SpawnHeavy", startDelay, timeBetweenShots); //this somehow keeps it from breaking
-            yield return new WaitForSeconds(0.5f);
-        }
-    }
 
     // Function to toggle visibility of a GameObject and all its children
     private void ToggleVisibility(GameObject obj, bool visibility)

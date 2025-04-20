@@ -1,8 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-//literally just copied and paste the laser script lol
+/*
+*Author(s): Jann Morales and Ricky Pardo
+ * Date Created: 4 / 10 / 2025
+ * Description: This is the laser script but for the HeavyBullet. 
+ */
 
 public class HeavyBullet : MonoBehaviour
 {
